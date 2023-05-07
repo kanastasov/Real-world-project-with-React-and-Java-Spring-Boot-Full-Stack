@@ -3,17 +3,20 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import {LinkContainer} from 'react-router-bootstrap'
 
 const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Navbar.Brand href="/">TheMovieDB</Navbar.Brand>
+            <LinkContainer to ='/'> 
+        <Navbar.Brand ></Navbar.Brand>
+     </LinkContainer>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/api/movies">Movies</Nav.Link>
+                <Nav.Link href="/">Movies</Nav.Link>
                 <Nav.Link href="/api/tv">TV Shows</Nav.Link>
 
                 <Nav.Link href="#features">People</Nav.Link>
