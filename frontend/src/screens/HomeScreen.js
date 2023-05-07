@@ -10,7 +10,7 @@ const HomeScreen = () => {
 
         <Row>
             {movies.map(movie => (
-                <Col sm={12} md={4} lg={4}xl={3}>
+                <Col key={movie._id} sm={12} md={4} lg={4}xl={3}>
                     <Movies movie={movie} />
                 </Col>
             ))}

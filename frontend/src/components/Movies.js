@@ -5,14 +5,14 @@ const Movies = ({movie}) => {
     return (
         
         <Card className='my-3 p-3 rounded'>
-            <a href={`/movie/${movie.id}`}>
+            <a href={`/movie/${movie._id}`}>
         <CardImg src = {movie.image} variant = 'top'/>
 
             </a>
 
 
 <Card.Body>
-<a href={`/movie/${movie.id}`}>
+<a href={`/movie/${movie._id}`}>
       <Card.Title as='div'>
         <strong>{movie.title}</strong>
 
