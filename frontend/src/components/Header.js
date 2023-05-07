@@ -11,12 +11,12 @@ const Header = () => {
           <Container>
             <Navbar.Brand href="/">TheMovieDB</Navbar.Brand>
             <LinkContainer to ='/'> 
-        <Navbar.Brand >Movies</Navbar.Brand>
+        <Navbar.Brand ></Navbar.Brand>
      </LinkContainer>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/api/movies">Movies</Nav.Link>
+                <Nav.Link href="/">Movies</Nav.Link>
                 <Nav.Link href="/api/tv">TV Shows</Nav.Link>
 
                 <Nav.Link href="#features">People</Nav.Link>

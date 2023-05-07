@@ -6,7 +6,7 @@ import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { fetchData } from '../util/helper';
 
-const MovieScreen = ({match}) => {
+const TVScreen = ({match}) => {
 
     
         const [movie, setMovie] = useState([])
@@ -14,7 +14,7 @@ const MovieScreen = ({match}) => {
     
         useEffect(() => {
             const axiosMovies = async() => {
-                const response = await fetchData(`movie/${id}`);
+                const response = await fetchData(`tv/${id}`);
                 console.log(response);
                 setMovie(response);
             }
@@ -81,4 +81,4 @@ const MovieScreen = ({match}) => {
     );
 }
  
-export default MovieScreen;
+export default TVScreen;
