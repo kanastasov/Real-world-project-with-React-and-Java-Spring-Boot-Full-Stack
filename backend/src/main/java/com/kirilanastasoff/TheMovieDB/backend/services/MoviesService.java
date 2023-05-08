@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.kirilanastasoff.TheMovieDB.backend.model.Movies;
+import org.springframework.stereotype.Service;
 
+import com.kirilanastasoff.TheMovieDB.backend.model.Movies;
+@Service
 public interface MoviesService {
 
 	List<Movies> getAllMovies();

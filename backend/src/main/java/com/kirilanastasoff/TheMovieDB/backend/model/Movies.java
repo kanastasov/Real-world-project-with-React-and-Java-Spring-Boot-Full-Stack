@@ -5,12 +5,13 @@ import java.util.List;
 
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name = "movies")
@@ -31,7 +32,7 @@ public class Movies {
 
 	@ElementCollection
 	@CollectionTable(name = "directors_companies", joinColumns = @JoinColumn(name = "director_id"))
-	@Column(name = "overview")
+	@Column(name = "production_companies")
 	private List<String> productionCompanies;
 
 	@Column(name = "user_score")
