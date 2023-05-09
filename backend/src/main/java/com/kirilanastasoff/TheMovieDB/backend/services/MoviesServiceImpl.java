@@ -74,12 +74,4 @@ public class MoviesServiceImpl implements MoviesService {
 		return this.moviesRepository.findByReleaseDate(releaseDate);
 	}
 	
-//	@Autowired
-//	public MoviesRepository getMoviesRepository() {
-//		return moviesRepository;
-//	}
-//	
-//	public void setMoviesRepository(MoviesRepository moviesRepository) {
-//		this.moviesRepository = moviesRepository;
-//	}
 }
