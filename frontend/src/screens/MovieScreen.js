@@ -1,32 +1,29 @@
 import React, {useState,useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Button, ListGroupItem, CardImg} from 'react-bootstrap'
-import movies from '../movies'
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
-import { fetchData } from '../util/helper';
+import { useDispatch, useSelector } from 'react-redux';
+import { listMovieDetails } from '../actions/movieActions';
+
 
 const MovieScreen = ({match}) => {
 
-    
-        const [movie, setMovie] = useState([])
-    
-    
-        useEffect(() => {
-            const axiosMovies = async() => {
-                const response = await fetchData(`movie/${id}`);
-                console.log(response);
-                setMovie(response);
-            }
-            axiosMovies();
-    
-        }, [])
-    
-    
-    
-
+    const dispatch = useDispatch()
+    const movieDetails = useSelector(state => state.movieDetails)
+    const {loading, error, movie} = movieDetails
+    console.log(movie)
     const {id} = useParams();
     console.log(id)
+
+    useEffect(() => {
+        dispatch(listMovieDetails(id))
+
+
+    }, [dispatch, id])
+
+    
+
 
     return (
     <div>
