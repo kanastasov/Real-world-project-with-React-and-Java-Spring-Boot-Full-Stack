@@ -4,25 +4,19 @@ import movies from '../movies'
 import Movies from '../components/Movies';
 import axios from 'axios'
 import { fetchData } from '../util/helper';
+import { useDispatch, useSelector } from 'react-redux';
+import { listMovies } from '../actions/movieActions';
 
 const HomeScreen = () => {
-
-
-
-
-    const [movies, setMovies] = useState([])
-    const MOVIES_API = 'https://api.themoviedb.org/3/movie/popular?api_key=134394aa4ce3b3f13628fa60f2f17bfe';
-
+    const dispatch = useDispatch()
+    const movieList = useSelector(state => state.movieList)
+    const {movies} = movieList
 
     useEffect(() => {
-        const axiosMovies = async() => {
-            const response = await fetchData('movie/popular');
-            console.log(response);
-            setMovies(response.results);
-        }
-        axiosMovies();
+        dispatch(listMovies())
 
-    }, [])
+
+    }, [dispatch])
 
 
 
