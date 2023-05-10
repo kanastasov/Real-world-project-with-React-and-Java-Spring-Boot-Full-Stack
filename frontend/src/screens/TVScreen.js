@@ -1,32 +1,27 @@
 import React, {useState,useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card, Button, ListGroupItem, CardImg} from 'react-bootstrap'
-import movies from '../movies'
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
-import { fetchData } from '../util/helper';
+import { useDispatch, useSelector } from 'react-redux';
+import { listTvDetails } from '../actions/tvActions';
 
 const TVScreen = ({match}) => {
 
-    
-        const [movie, setMovie] = useState([])
-    
-    
+    const dispatch = useDispatch()
+    const tvDetails = useSelector(state => state.tvDetails)
+    const {tv} = tvDetails
+    const {id} = useParams();
+    console.log(id)
         useEffect(() => {
-            const axiosMovies = async() => {
-                const response = await fetchData(`tv/${id}`);
-                console.log(response);
-                setMovie(response);
-            }
-            axiosMovies();
+            dispatch(listTvDetails(id))
+
     
-        }, [])
+        }, [dispatch])
     
     
     
 
-    const {id} = useParams();
-    console.log(id)
 
     return (
     <div>
@@ -34,43 +29,43 @@ const TVScreen = ({match}) => {
 
         <Row>
             <Col md={6}>
-            <CardImg src = {`https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`} variant = 'top'/>
+            <CardImg src = {`https://image.tmdb.org/t/p/w500${tv?.backdrop_path}`} variant = 'top'/>
             </Col>
 
 
             <Col md={3}>
             <ListGroup>
             <ListGroupItem>
-                <h3>{movie?.title}</h3>
+                <h3>{tv?.title}</h3>
             </ListGroupItem>
 
             <ListGroupItem>
-                <CircularProgressbar value={movie?.vote_average*10} text={`${movie?.vote_average*10}%`} />
+                <CircularProgressbar value={tv?.vote_average*10} text={`${tv?.vote_average*10}%`} />
             </ListGroupItem>
 
             <ListGroupItem>
-              Production {movie?.production_companies?.map(genre =>
+              Production {tv?.production_companies?.map(genre =>
                 (genre.name) + ', ')}
             </ListGroupItem>
 
             <ListGroupItem>
-               Overview {movie?.overview}
+               Overview {tv?.overview}
             </ListGroupItem>
 
             <ListGroupItem>
-               Status{movie?.status}
+               Status{tv?.status}
             </ListGroupItem>
             <ListGroupItem>
-               Release Date{movie?.release_date}
+               Release Date{tv?.release_date}
             </ListGroupItem>
 
             <ListGroupItem>
-              Genres {movie?.genres?.map(genre =>
+              Genres {tv?.genres?.map(genre =>
                 (genre.name) + ', ')}
             </ListGroupItem>
 
             <ListGroupItem>
-              Duration {movie?.runtime}
+              Duration {tv?.runtime}
             </ListGroupItem>
             </ListGroup>
 

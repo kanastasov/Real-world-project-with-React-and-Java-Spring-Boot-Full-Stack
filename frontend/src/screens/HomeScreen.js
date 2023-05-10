@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Row, Col} from 'react-bootstrap'
-import movies from '../movies'
 import Movies from '../components/Movies';
-import axios from 'axios'
-import { fetchData } from '../util/helper';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMovies } from '../actions/movieActions';
 
