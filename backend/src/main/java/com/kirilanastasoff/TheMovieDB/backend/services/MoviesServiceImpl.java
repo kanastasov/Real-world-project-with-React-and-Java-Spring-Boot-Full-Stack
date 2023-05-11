@@ -63,6 +63,7 @@ public class MoviesServiceImpl implements MoviesService {
 		tempMoviesObj.setStatus(movies.getStatus());
 		tempMoviesObj.setGenres(movies.getGenres());
 		tempMoviesObj.setDuration(movies.getDuration());
+		tempMoviesObj.setReleaseDate(movies.getReleaseDate());
 		tempMoviesObj.setTheMovieDbId(movies.getTheMovieDbId());
 		moviesRepository.save(tempMoviesObj);
 		

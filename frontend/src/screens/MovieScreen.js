@@ -5,7 +5,7 @@ import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMovieDetails } from '../actions/movieActions';
-
+import axios from 'axios'
 
 const MovieScreen = ({match}) => {
 
@@ -22,6 +22,26 @@ const MovieScreen = ({match}) => {
 
     }, [dispatch, id])
 
+
+
+    const tempMovie = {
+        name: movie.original_title,
+        image: movie?.poster_path,
+        overview: movie.overview,
+        productionCompanies: movie.production_companies?.map(company => company.name),
+        userScore : movie.vote_average*10,
+        status: movie.status,
+        genres: movie.genres?.map(genre => genre.name),
+        duration: movie.runtime,
+        theMovieDbId: movie.id,
+        releaseDate: movie.release_date,
+
+    }
+    function saveMovies() {
+        // call to springURL and add redux 
+        const response = axios.post(`http://localhost:8081/api/movies`, tempMovie)
+        console.log(response)
+    }
     
 
 
@@ -73,6 +93,10 @@ const MovieScreen = ({match}) => {
 
             </Col>
         </Row>
+
+        <button className='btn btn-dark my-3'  onClick={saveMovies}>Edit Page</button>
+
+        
     </div>
     
     );

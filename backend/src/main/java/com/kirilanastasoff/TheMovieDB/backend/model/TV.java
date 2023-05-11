@@ -33,11 +33,6 @@ public class TV {
 	@CollectionTable(name = "directors_companies_tv", joinColumns = @JoinColumn(name = "tv_director_id"))
 	@Column(name = "production_companies_tv")
 	private List<String> productionCompaniesTV;
-
-//	@ElementCollection
-//	@CollectionTable(name = "directors_companies", joinColumns = @JoinColumn(name = "director_id"))
-//	@Column(name = "production_companies")
-//	private List<String> productionCompanies;
 	
 	@Column(name = "vote_average")
 	private double voteAverage;
