@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const localObj={
     currentPage: window.location.pathname,
     search:{
@@ -10,7 +12,11 @@ export const localObj={
     api:{
         key: '134394aa4ce3b3f13628fa60f2f17bfe',
         url: 'https://api.themoviedb.org/3/'
-    }
+    },
+
+    backend: {
+        url: 'http://localhost:8081/api/'
+    },
 
 }
 // const MOVIES_API = 'https://api.themoviedb.org/3/movie/popular?api_key=134394aa4ce3b3f13628fa60f2f17bfe';
@@ -22,4 +28,22 @@ export async function fetchData(endpoint){
     const response = await fetch(`${url}${endpoint}?api_key=${key}&language=en-Us`);
     const data = await response.json();
     return data
+}
+
+
+// http://localhost:8081/api/movies
+export async function backEndCall(endpoint, tempMovie){
+    const url = localObj.backend.url;
+
+    console.log(`${url}${endpoint}`)
+
+
+
+    // const response = await fetch(`${url}${endpoint}`);
+    const response = axios.post(`${url}${endpoint}`, tempMovie)
+    console.log(response)
+
+    const data = await response.json();
+    return data
+
 }
