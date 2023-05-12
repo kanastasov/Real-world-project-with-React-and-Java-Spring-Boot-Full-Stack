@@ -4,7 +4,7 @@ import {Row, Col, Image, ListGroup, Card, Button, ListGroupItem, CardImg} from '
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { listTvDetails } from '../actions/tvActions';
+import { listTvDetails, saveTVDetails } from '../actions/tvActions';
 
 const TVScreen = ({match}) => {
 
@@ -19,8 +19,28 @@ const TVScreen = ({match}) => {
     
         }, [dispatch])
     
+
+
+        const tempTV = {
+            name: tv.name,
+            posterPath: tv?.poster_path,
+            overview: tv.overview,
+            productionCompaniesTV: tv.production_companies?.map(company => company.name),
+            voteAverage : tv.vote_average*10,
+            voteCount: tv.vote_count,
+            genres: tv.genres?.map(genre => genre.name),
+            theMovieDbId: tv.id,
+            originalName: tv.original_name,
+            firstAirDate: tv.last_air_date,
+    
+        }
     
     
+        function saveTV() {
+            console.log(tempTV)
+            dispatch(saveTVDetails(tempTV))
+
+        }
 
 
     return (
@@ -71,6 +91,9 @@ const TVScreen = ({match}) => {
 
             </Col>
         </Row>
+
+        <button className='btn btn-dark my-3'  onClick={saveTV}>Edit Page</button>
+
     </div>
     
     );

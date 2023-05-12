@@ -4,7 +4,7 @@ import {Row, Col, Image, ListGroup, Card, Button, ListGroupItem, CardImg} from '
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { listMovieDetails } from '../actions/movieActions';
+import { listMovieDetails,saveMovieDetails } from '../actions/movieActions';
 import axios from 'axios'
 
 const MovieScreen = ({match}) => {
@@ -38,9 +38,7 @@ const MovieScreen = ({match}) => {
 
     }
     function saveMovies() {
-        // call to springURL and add redux 
-        const response = axios.post(`http://localhost:8081/api/movies`, tempMovie)
-        console.log(response)
+        dispatch(saveMovieDetails(tempMovie))
     }
     
 

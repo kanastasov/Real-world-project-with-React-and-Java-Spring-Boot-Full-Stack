@@ -51,7 +51,6 @@ public class TVServiceImpl implements TVService {
 	@Override
 	public TV saveTV(TV TV) {
 		TV tempTVObj = new TV();
-
 		tempTVObj.setName(TV.getName());
 		tempTVObj.setPosterPath(TV.getPosterPath());
 		tempTVObj.setOverview(TV.getOverview());

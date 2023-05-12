@@ -2,11 +2,13 @@ import {
     MOVIE_LIST_REQUEST,
     MOVIE_LIST_SUCCESS,
     MOVIE_LIST_FAIL,
-
-    
     MOVIE_DETAILS_LIST_REQUEST,
     MOVIE_DETAILS_LIST_SUCCESS,
     MOVIE_DETAILS_LIST_FAIL,
+
+    SAVE_MOVIE_DETAILS_REQUEST, 
+    SAVE_MOVIE_DETAILS_SUCCESS,
+    SAVE_MOVIE_DETAILS_FAIL,
 } from '../constants/movieConstants'
 
 export const movieListReducer = (state = {movies:[]}, action) => {
@@ -32,6 +34,21 @@ export const movieDetailsReducer = (state = {movie:{}}, action) => {
         case MOVIE_DETAILS_LIST_SUCCESS:
             return {loading: false, movie: action.payload}
         case MOVIE_DETAILS_LIST_FAIL:
+            return {
+                loading:false, error: action.payload
+            }
+            default:
+                return state
+    }
+}
+
+export const saveMovieDetailsReducer = (state = {movie:{}}, action) => {
+    switch(action.type){
+        case SAVE_MOVIE_DETAILS_REQUEST:
+            return {loading: true, ...state}
+        case SAVE_MOVIE_DETAILS_SUCCESS:
+            return {loading: false, movie: action.payload}
+        case SAVE_MOVIE_DETAILS_FAIL:
             return {
                 loading:false, error: action.payload
             }

@@ -5,6 +5,9 @@ import {
     TV_DETAILS_LIST_REQUEST,
     TV_DETAILS_LIST_SUCCESS,
     TV_DETAILS_LIST_FAIL,
+    SAVE_TV_DETAILS_REQUEST,
+    SAVE_TV_DETAILS_SUCCESS,
+    SAVE_TV_DETAILS_FAIL,
 } from '../constants/tvConstants'
 
 
@@ -32,6 +35,21 @@ export const tvDetailsReducer = (state = {tv:{}}, action) => {
         case TV_DETAILS_LIST_SUCCESS:
             return {loading: false, tv: action.payload}
         case TV_DETAILS_LIST_FAIL:
+            return {
+                loading:false, error: action.payload
+            }
+            default:
+                return state
+    }
+}
+
+export const saveTVDetailsReducer = (state = {tv:{}}, action) => {
+    switch(action.type){
+        case SAVE_TV_DETAILS_REQUEST:
+            return {loading: true, ...state}
+        case SAVE_TV_DETAILS_SUCCESS:
+            return {loading: false, tv: action.payload}
+        case SAVE_TV_DETAILS_FAIL:
             return {
                 loading:false, error: action.payload
             }
