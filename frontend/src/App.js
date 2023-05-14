@@ -8,8 +8,8 @@ import {Container} from 'react-bootstrap'
 import MovieScreen from './screens/MovieScreen';
 import HomeTVScreen from './screens/HomeTVScreen';
 import TVScreen from './screens/TVScreen';
-
-
+import PersonScreen from './screens/PersonScreen';
+import PersonDetailsScreen from './screens/PersonDetailsScreen';
 function App() {
   return (
     <div>
@@ -22,6 +22,9 @@ function App() {
         <Route path='/movie/:id' element={<MovieScreen />} exact/>
         <Route path='/api/tv/' element={<HomeTVScreen />} exact/>
         <Route path='/api/tv/:id' element={<TVScreen />} exact/>
+        <Route path='/api/person/' element={<PersonScreen />} exact/>
+        <Route path='/api/person/:id' element={<PersonDetailsScreen />} exact/>
+
 
         </Routes>
 
