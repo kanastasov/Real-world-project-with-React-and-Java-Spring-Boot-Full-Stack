@@ -49,10 +49,10 @@ export const listPersonDetails = (id)=> async(dispach)=> {
     }
 }
 
-export const savePersonDetails = (movie)=> async(dispach)=> {
+export const savePersonDetails = (person)=> async(dispach)=> {
     try{
         dispach({type: SAVE_PERSON_DETAILS_REQUEST})
-        const response = await backEndCall(`person`, movie);
+        const response = await backEndCall(`people`, person);
         console.log(response)
         dispach({
             type: SAVE_PERSON_DETAILS_SUCCESS,
