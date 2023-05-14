@@ -27,9 +27,9 @@ const Header = () => {
                 <Nav.Link href="#deets">+</Nav.Link>
                 <Nav.Link href="#deets">EN</Nav.Link>
 
-                <Nav.Link href="#deets">Login</Nav.Link>
+                <Nav.Link href="/api/login">Login</Nav.Link>
 
-                <Nav.Link href="#deets">Join TMDB</Nav.Link>
+                <Nav.Link href="/api/register">Join TMDB</Nav.Link>
 
                 <Nav.Link href="#deets">Search</Nav.Link>
 
