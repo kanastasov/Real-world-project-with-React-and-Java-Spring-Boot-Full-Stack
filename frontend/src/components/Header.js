@@ -19,7 +19,7 @@ const Header = () => {
                 <Nav.Link href="/">Movies</Nav.Link>
                 <Nav.Link href="/api/tv">TV Shows</Nav.Link>
 
-                <Nav.Link href="/api/person">People</Nav.Link>
+                <Nav.Link href="/api/people">People</Nav.Link>
                 <Nav.Link href="https://www.themoviedb.org/">More</Nav.Link>
       
               </Nav>

@@ -32,7 +32,7 @@ export async function fetchData(endpoint){
 
 
 // http://localhost:8081/api/movies
-export async function backEndCall(endpoint, tempMovie){
+export async function backEndCall(endpoint, tempObj){
     const url = localObj.backend.url;
 
     console.log(`${url}${endpoint}`)
@@ -40,7 +40,7 @@ export async function backEndCall(endpoint, tempMovie){
 
 
     // const response = await fetch(`${url}${endpoint}`);
-    const response = axios.post(`${url}${endpoint}`, tempMovie)
+    const response = axios.post(`${url}${endpoint}`, tempObj)
     console.log(response)
 
     const data = await response.json();

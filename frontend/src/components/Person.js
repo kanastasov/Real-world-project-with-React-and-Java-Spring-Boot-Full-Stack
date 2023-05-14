@@ -6,12 +6,12 @@ const Person = ({person}) => {
     return (
         
         <Card className='my-3 p-3 rounded'>
-            <a href={`/api/person/${person.id}`}>
+            <a href={`/api/people/${person.id}`}>
         <CardImg src = {`https://image.tmdb.org/t/p/w500${person.profile_path}`} variant = 'top'/>
             </a>
 
     <Card.Body>
-        <a href={`/api/person/${person.id}`}>
+        <a href={`/api/people/${person.id}`}>
       <Card.Title as='div'>
         <strong>{person.title}</strong>
       </Card.Title>

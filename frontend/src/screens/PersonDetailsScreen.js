@@ -24,36 +24,6 @@ const PersonDetailsScreen = ({match}) => {
     }, [dispatch, id])
 
 
-
-    const tempMovie = {
-        name: person.original_title,
-        image: person?.poster_path,
-        overview: person.overview,
-        productionCompanies: person.production_companies?.map(company => company.name),
-        userScore : person.vote_average*10,
-        status: person.status,
-        genres: person.genres?.map(genre => genre.name),
-        duration: person.runtime,
-        thepMovieDbId: person.id,
-        releaseDate: person.release_date,
-
-    }
-    function savePeople() {
-        dispatch(savePersonDetails(tempMovie))
-    }
-    
-
-
-    return (
-    <div>
-        <Link className='btn btn-dark my-3' to = '/'>Go Back</Link>
-
-        <Row>
-            <Col md={6}>
-            <Image src = {`https://image.tmdb.org/t/p/w300${person?.profile_path}`} variant = 'top'/>
-            </Col>
-
-
             {/* adult: false,
 also_known_as: [ ],
 biography: "",
@@ -68,6 +38,44 @@ name: "Şifanur Gül",
 place_of_birth: "Ankara, Türkiye",
 popularity: 132.065,
 profile_path: "/5xzZlvropBfdcq4E4auoM2xV0EN.jpg" */}
+
+
+    const tempPerson = {
+        adult: person?.adult,
+        alsoKnownAs: person?.also_known_as,
+        biography: person?.biography,
+        birthDay: person?.birthday,
+        deadthDay: person?.deathDay || '',
+        gender: person?.gender,
+        homepage: person?.homepage,
+        theMovieDbId: person.id,
+        imdbId: person?.imdb_id,
+        knownForDepartment: person?.known_for_department,
+        name: person.name,
+        placeOfBirth: person?.place_of_birth,
+        popularity: person?.popularity,
+        profilePath: person?.profile_path,
+    }
+
+
+    function savePeople() {
+        console.log(tempPerson)
+        dispatch(savePersonDetails(tempPerson))
+    }
+    
+
+
+    return (
+    <div>
+        <Link className='btn btn-dark my-3' to = '/'>Go Back</Link>
+
+        <Row>
+            <Col md={6}>
+            <Image src = {`https://image.tmdb.org/t/p/w300${person?.profile_path}`} variant = 'top'/>
+            </Col>
+
+
+
 
 
 

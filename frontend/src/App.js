@@ -22,8 +22,8 @@ function App() {
         <Route path='/movie/:id' element={<MovieScreen />} exact/>
         <Route path='/api/tv/' element={<HomeTVScreen />} exact/>
         <Route path='/api/tv/:id' element={<TVScreen />} exact/>
-        <Route path='/api/person/' element={<PersonScreen />} exact/>
-        <Route path='/api/person/:id' element={<PersonDetailsScreen />} exact/>
+        <Route path='/api/people/' element={<PersonScreen />} exact/>
+        <Route path='/api/people/:id' element={<PersonDetailsScreen />} exact/>
 
 
         </Routes>
