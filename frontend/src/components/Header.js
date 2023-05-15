@@ -16,12 +16,31 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="/">Movies</Nav.Link>
-                <Nav.Link href="/api/tv">TV Shows</Nav.Link>
 
-                <Nav.Link href="/api/people">People</Nav.Link>
-                <Nav.Link href="https://www.themoviedb.org/">More</Nav.Link>
-      
+                <NavDropdown title="Movies" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/">Popular</NavDropdown.Item>
+                  <NavDropdown.Item href="/api/nowPlaying">                    Now Playing              </NavDropdown.Item>
+                  <NavDropdown.Item href="/api/upcoming">Upcoming</NavDropdown.Item>                  
+                  <NavDropdown.Item href="/api/topRated">Top Rated</NavDropdown.Item>
+                </NavDropdown>
+
+
+                <NavDropdown title="TV Shows" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/api/tv">Popular</NavDropdown.Item>
+                  <NavDropdown.Item href="/api/tv/airingToday">Airing Today</NavDropdown.Item>
+                  <NavDropdown.Item href="/api/tv/upcoming">On TV</NavDropdown.Item>                  
+                  <NavDropdown.Item href="/api/tv/topRated">Top Rated</NavDropdown.Item>
+                </NavDropdown>
+
+                <NavDropdown title="People" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/api/people">Popular People</NavDropdown.Item>
+                </NavDropdown>
+                <NavDropdown title="More" id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="https://www.themoviedb.org/">Discussions</NavDropdown.Item>
+                  <NavDropdown.Item href="https://www.themoviedb.org/leaderboard">Leaderboard</NavDropdown.Item>
+                  <NavDropdown.Item href="https://www.themoviedb.org/talk">Support</NavDropdown.Item>                  
+                  <NavDropdown.Item href="https://developer.themoviedb.org/docs">API</NavDropdown.Item>
+                </NavDropdown>  
               </Nav>
               <Nav>
                 <Nav.Link href="#deets">+</Nav.Link>
