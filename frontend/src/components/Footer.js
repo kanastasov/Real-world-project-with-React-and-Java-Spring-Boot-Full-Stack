@@ -2,15 +2,15 @@ import React from 'react';
 import {Container, Row, Col, Image} from 'react-bootstrap'
 const Footer = () => {
     return ( 
-        <footer>
-            <nav>
+        <footer className='footer'>
+            <nav className='footer nav '>
 
 
             <div>
 
 
-            <Image src={'/images/theMoviedb.jpg'} alt="The Movie Database (TMDB)" width="130" height="94" />
-            <a class="rounded" href="/api/register">Join the Community</a>
+            <Image src={'/images/theMoviedb.jpg'} alt="The Movie Database (TMDB)" width="160" height="124" />
+            <a   className='footer nav a.rounded' href="/api/register">Join the Community</a>
             </div>
 
             <div>
@@ -52,17 +52,6 @@ const Footer = () => {
                     <li>Privacy Policy</li>
                 </ul>
             </div>
-          
-
-            <Container className='light-group-item'>
-                <Row>
-                    <Col className='text-center py-3'>
-                        Copyright &copy; The Movie DB
-                    </Col>
-
-                </Row>
-
-            </Container>
             </nav>
         </footer>
 
