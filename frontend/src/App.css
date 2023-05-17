@@ -96,4 +96,55 @@
 
 }
 
+form a {
+  color: #3498db;
+  text-decoration: none;
+}
 
+form a:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.card {
+  width: 258px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(227,227,227);
+  background-color: #fff;
+}
+.card .row-1 {
+  background-color: #3498db;
+  color: white;
+  padding: 20px;
+  font-weight: 600;
+}
+
+.card .row-2 {
+  padding: 8px 0;
+}
+
+.card div.row-2 div {
+  display: flex;
+  justify-content: right;
+}
+
+.card .row-2 div:hover {
+  background-color: rgb(128, 128, 128, 0.1);
+}
+
+.card div.row-2 div span:first-of-type {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.card div.row-2 div span:last-of-type {
+  width: 85%;
+}
+
+.column-wrapper {
+  display: flex;
+}
+
+.register {
+  padding-left: 30px;
+}
