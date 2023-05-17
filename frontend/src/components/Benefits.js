@@ -3,7 +3,7 @@ import React from 'react';
 const Benefits = ({Benefits}) => {
     return (
         <>
-            <div className="card">
+            <div className="benefits-card">
                 <div className="row-1">
                     Benefits of being a member
                 </div>
