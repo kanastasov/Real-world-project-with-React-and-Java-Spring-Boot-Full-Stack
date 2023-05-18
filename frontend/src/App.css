@@ -93,6 +93,23 @@
 .navbar,
 .navbar-default{
   color:white;
+}
+
+
+.style-ul{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style-type: none;
+}
+
+.style-li{
+ width: 15%;
+ margin-right: 20px;
+}
+
+.div-image{
+  background-image: linear-gradient(to right, rgba(31.5, 31.5, 10.5, 1) calc((50vw - 170px) - 340px), rgba(31.5, 31.5, 10.5, 0.84) 50%, rgba(31.5, 31.5, 10.5, 0.84) 100%);
 
 }
 

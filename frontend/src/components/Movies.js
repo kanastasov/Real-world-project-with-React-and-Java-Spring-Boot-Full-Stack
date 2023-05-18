@@ -12,39 +12,24 @@ const Movies = ({movie}) => {
 
 
     <Card.Body>
+        
+        <div className='my-3' style = {{height : '50px', width: '50px'}}>
+         <CircularProgressbar   value={movie?.vote_average * 10} text={`${movie?.vote_average * 10}%`} />
+        </div>
+        
+
         <a href={`/movie/${movie.id}`}>
       <Card.Title as='div'>
         <strong>{movie.title}</strong>
-
       </Card.Title>
+        </a>
+        <Card.Text as ='h4'>
+        {movie.release_date}
+        </Card.Text>
 
-            </a>
             
         <Card.Text as ='div'>
-        <div className='my-3'>
-        <CircularProgressbar value = {movie.vote_average*10} text={`${movie.vote_average * 10}%`} />
-
-        </div>
-
-
-        <Card.Text as ='h4'>
-        Vote Count {movie.vote_count}
-        </Card.Text>
-
-
-
-
-        <Card.Text as ='h5'>
-        Popularity {movie.popularity}
-        </Card.Text>
-
-
        
-
-      
-
-
-
         </Card.Text>
 
 </Card.Body>
