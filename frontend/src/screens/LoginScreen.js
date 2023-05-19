@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import Button from 'react-bootstrap/Button';
 
 
 const LoginScreen = () => {
@@ -39,7 +39,7 @@ function handleSublitBtn() {
         </div> 
     </div>
 
-    <button class="btn btn-primary" type="submit">Login</button>
+    <Button variant="info" className="me-2">Login</Button>
     <a href ='/api/reset-password'>Reset password</a>
 
     </form>
