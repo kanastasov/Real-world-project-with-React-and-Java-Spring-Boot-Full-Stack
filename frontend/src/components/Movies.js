@@ -20,10 +20,10 @@ const Movies = ({movie}) => {
 
         <a href={`/movie/${movie.id}`}>
       <Card.Title as='div'>
-        <strong>{movie.title}</strong>
+        <strong style={{color: 'black'}} >{movie.original_title}</strong>
       </Card.Title>
         </a>
-        <Card.Text as ='h4'>
+        <Card.Text style={{color: 'grey'}} as ='h4'>
         {movie.release_date}
         </Card.Text>
 

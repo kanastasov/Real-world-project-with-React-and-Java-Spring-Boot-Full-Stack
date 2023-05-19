@@ -19,6 +19,7 @@ export const localObj={
     },
 
 }
+
 // const MOVIES_API = 'https://api.themoviedb.org/3/movie/popular?api_key=134394aa4ce3b3f13628fa60f2f17bfe';
 export async function fetchData(endpoint){
     const key=  localObj.api.key;

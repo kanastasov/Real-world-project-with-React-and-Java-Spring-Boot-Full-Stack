@@ -13,11 +13,11 @@ import {
 
 import { fetchData,backEndCall } from '../util/helper'
 
-export const listMovies=()=> async(dispach)=> {
+export const listMovies=(movie)=> async(dispach)=> {
     try{
         dispach({type: MOVIE_LIST_REQUEST})
 
-        const response = await fetchData('movie/popular');
+        const response = await fetchData(`movie/${movie}`);
         dispach({
             type: MOVIE_LIST_SUCCESS,
             payload: response.results
