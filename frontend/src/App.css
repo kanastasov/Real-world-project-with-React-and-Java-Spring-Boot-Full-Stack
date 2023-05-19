@@ -81,13 +81,11 @@
 
 .color-change {
   background-image: radial-gradient(at 30% top, #031d33 0%, rgba(3,37,65) 70%);
-  color: #fff !important;
 }
 
-.nav-dropdown{
-  color:white;
-  font-weight: bold;
-  background-color : white;
+.navbar-dark .navbar-nav a.nav-link:focus, 
+.navbar-dark .navbar-nav a.nav-link:hover {
+  color: white;
 }
 
 .navbar,
