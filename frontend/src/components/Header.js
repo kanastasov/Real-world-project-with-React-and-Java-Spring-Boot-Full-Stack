@@ -28,7 +28,7 @@ const Header = () => {
                 <NavDropdown className = 'nav-dropdown' title="TV Shows" id="collapsible-nav-dropdown2">
                   <NavDropdown.Item href="/api/tv">Popular</NavDropdown.Item>
                   <NavDropdown.Item href="/api/tv/airingToday">Airing Today</NavDropdown.Item>
-                  <NavDropdown.Item href="/api/tv/upcoming">On TV</NavDropdown.Item>                  
+                  <NavDropdown.Item href="/api/tv/on-the-air">On TV</NavDropdown.Item>                  
                   <NavDropdown.Item href="/api/tv/topRated">Top Rated</NavDropdown.Item>
                 </NavDropdown>
 

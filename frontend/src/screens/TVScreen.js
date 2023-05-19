@@ -45,7 +45,7 @@ const TVScreen = ({match}) => {
 
     return (
     <div>
-        <Link className='btn btn-dark my-3' to = '/'>Go Back</Link>
+        <Link className='btn btn-dark my-3' to = '/api/tv'>Go Back</Link>
 
         <Row>
             <Col md={6}>
