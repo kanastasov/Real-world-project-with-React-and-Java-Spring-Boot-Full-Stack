@@ -20,7 +20,12 @@ function App() {
       <main className='py-3'>
       <Container>
         <Routes>
-        <Route path='/' element={<HomeScreen/>} exact/>
+        <Route path='/' element={<HomeScreen movieRender={'popular'} />} exact/>
+        <Route path='/api/nowPlaying' element={<HomeScreen movieRender={'now_playing'}/>} exact/>
+        <Route path='/api/upcoming' element={<HomeScreen movieRender={'upcoming'}/>} exact/>
+        <Route path='/api/topRated' element={<HomeScreen movieRender={'top_rated'}/>} exact/>
+
+
         <Route path='/movie/:id' element={<MovieScreen />} exact/>
         <Route path='/api/tv/' element={<HomeTVScreen />} exact/>
         <Route path='/api/login/' element={<LoginScreen />} exact/>

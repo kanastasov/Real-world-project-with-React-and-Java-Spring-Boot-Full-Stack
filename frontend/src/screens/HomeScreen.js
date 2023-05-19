@@ -4,13 +4,16 @@ import Movies from '../components/Movies';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMovies } from '../actions/movieActions';
 
-const HomeScreen = () => {
+const HomeScreen = ({movieRender}) => {
     const dispatch = useDispatch()
     const movieList = useSelector(state => state.movieList)
     const {movies} = movieList
 
+
+    console.log(movieRender)
+    // popular, now_playing, upcoming top_rated 
     useEffect(() => {
-        dispatch(listMovies())
+        dispatch(listMovies(movieRender))
 
 
     }, [dispatch])
