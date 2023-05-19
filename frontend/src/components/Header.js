@@ -15,7 +15,7 @@ const Header = () => {
            </LinkContainer>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="me-auto" variant='dark'>
+              <Nav className="me-auto">
 
                 <NavDropdown  className = 'nav-dropdown' title="Movies" id="collapsible-nav-dropdown1">
                   <NavDropdown.Item href="/">Popular</NavDropdown.Item>
@@ -42,7 +42,7 @@ const Header = () => {
                   <NavDropdown.Item href="https://developer.themoviedb.org/docs">API</NavDropdown.Item>
                 </NavDropdown>  
               </Nav>
-              <Nav variant='dark'>
+              <Nav>
                 <Nav.Link className = 'nav-dropdown'  href="#deets">+</Nav.Link>
                 <Nav.Link className = 'nav-dropdown'  href="#deets">EN</Nav.Link>
 
