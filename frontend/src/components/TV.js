@@ -21,21 +21,20 @@ const TV = ({tv}) => {
             </a>
             
         <Card.Text as ='div'>
-        <div className='my-3'>
-        <CircularProgressbar value = {tv.vote_average*10} text={`${tv.vote_average * 10}%`} />
-
+        <div className='my-3' style = {{height : '50px', width: '50px'}}>
+         <CircularProgressbar   value={tv?.vote_average * 10} text={`${tv?.vote_average * 10}%`} />
         </div>
 
 
-        <Card.Text as ='h4'>
-        Vote Count {tv.vote_count}
+        <Card.Text as ='h4' style={{color: 'black'}}>
+               {tv.original_name}
         </Card.Text>
 
 
 
 
-        <Card.Text as ='h5'>
-        Popularity {tv.popularity}
+        <Card.Text as ='h5' style={{color: 'grey'}}>
+             {tv.first_air_date}
         </Card.Text>
 
 

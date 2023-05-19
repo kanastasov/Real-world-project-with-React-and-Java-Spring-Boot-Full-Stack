@@ -24,10 +24,11 @@ function App() {
         <Route path='/api/nowPlaying' element={<HomeScreen movieRender={'now_playing'}/>} exact/>
         <Route path='/api/upcoming' element={<HomeScreen movieRender={'upcoming'}/>} exact/>
         <Route path='/api/topRated' element={<HomeScreen movieRender={'top_rated'}/>} exact/>
-
-
         <Route path='/movie/:id' element={<MovieScreen />} exact/>
-        <Route path='/api/tv/' element={<HomeTVScreen />} exact/>
+        <Route path='/api/tv/' element={<HomeTVScreen tvRender={'popular'}/>} exact/>
+        <Route path='/api/tv/airingToday/' element={<HomeTVScreen  tvRender={'airing_today'} />} exact/>
+        <Route path='/api/tv/on-the-air/' element={<HomeTVScreen  tvRender={'on_the_air'} />} exact/>
+        <Route path='/api/tv/topRated/' element={<HomeTVScreen  tvRender={'top_rated'} />} exact/>
         <Route path='/api/login/' element={<LoginScreen />} exact/>
         <Route path='/api/register/' element={<RegisterScreen />} exact/>
         <Route path='/api/tv/:id' element={<TVScreen />} exact/>

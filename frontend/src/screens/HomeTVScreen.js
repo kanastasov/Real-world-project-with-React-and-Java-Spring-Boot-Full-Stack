@@ -6,15 +6,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listTv } from '../actions/tvActions';
 
 
-const HomeTVScreen = () => {
+const HomeTVScreen = ({tvRender}) => {
 
-    // const [movies, setMovies] = useState([])
     const dispatch = useDispatch()
     const tvList = useSelector(state => state.tvList)
     const {tvs} = tvList
 
+    console.log(tvRender)
     useEffect(() => {
-        dispatch(listTv())
+        dispatch(listTv(tvRender))
 
     }, [dispatch])
 
