@@ -6,24 +6,37 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMovieDetails,saveMovieDetails } from '../actions/movieActions';
 import {listTopBilledActors} from '../actions/personActions'
+import {listReviews} from '../actions/reviewsActions'
+import Reviews from '../components/Reviews'
 import Person from '../components/Person'
-const MovieScreen = ({match}) => {
 
+
+const MovieScreen = ({match}) => {
+    const size = 175
+    const {id} = useParams();
     const dispatch = useDispatch()
     const movieDetails = useSelector(state => state.movieDetails)
     const {loading, error, movie} = movieDetails
 
     const actorsTopBilled = useSelector(state => state.actorsTopBilled)
     const {topBilledActors} = actorsTopBilled
-    console.log(topBilledActors)
-   const size = 175
 
-    const {id} = useParams();
-    console.log(id)
+
+    const movieReviewsList = useSelector(state => state.movieReviewsList)
+    const {movieReviews} = movieReviewsList
+    
+  console.log(movieReviews)
+
+
+
+
+
 
     useEffect(() => {
         dispatch(listMovieDetails(id))
         dispatch(listTopBilledActors(id))
+        dispatch(listReviews(id))
+
 
     }, [dispatch, id])
 
@@ -149,6 +162,28 @@ const MovieScreen = ({match}) => {
 
            </Row>
         </div>
+
+            <div>
+              <strong>Full Cast & Crew</strong>
+              <Row>
+            
+              {movieReviews.map((review,index) =>
+                 (index < 1) ?
+                 <Col
+             
+                 key = {review.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  <Reviews review={review} size={size} />
+                 </Col>
+                 : null
+                )}
+
+
+              </Row>
+            </div>
+
+
+
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30.4" height="30.4" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
