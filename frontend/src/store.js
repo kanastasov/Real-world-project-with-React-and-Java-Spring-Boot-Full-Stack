@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { movieListReducer,movieDetailsReducer, saveMovieDetailsReducer } from './reducers/movieListReducer'
 import {tvListReducer, tvDetailsReducer,saveTVDetailsReducer} from './reducers/tvListReducer'
-import {personDetailsReducer, savePersonDetailsReducer, personListReducer} from './reducers/personListReducer'
+import {personDetailsReducer, savePersonDetailsReducer, personListReducer,actorsTopBilledReducer} from './reducers/personListReducer'
 const reducer = combineReducers({
     movieList: movieListReducer,
     movieDetails: movieDetailsReducer,
@@ -15,6 +15,7 @@ const reducer = combineReducers({
     personDetails: personDetailsReducer,
     savePersonDetails: savePersonDetailsReducer,
     personList: personListReducer,
+    actorsTopBilled: actorsTopBilledReducer,
 
 })
 
