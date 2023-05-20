@@ -5,20 +5,25 @@ import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMovieDetails,saveMovieDetails } from '../actions/movieActions';
-import axios from 'axios'
-
+import {listTopBilledActors} from '../actions/personActions'
+import Person from '../components/Person'
 const MovieScreen = ({match}) => {
 
     const dispatch = useDispatch()
     const movieDetails = useSelector(state => state.movieDetails)
     const {loading, error, movie} = movieDetails
-    console.log(movie)
+
+    const actorsTopBilled = useSelector(state => state.actorsTopBilled)
+    const {topBilledActors} = actorsTopBilled
+    console.log(topBilledActors)
+   const size = 175
+
     const {id} = useParams();
     console.log(id)
 
     useEffect(() => {
         dispatch(listMovieDetails(id))
-
+        dispatch(listTopBilledActors(id))
 
     }, [dispatch, id])
 
@@ -126,6 +131,23 @@ const MovieScreen = ({match}) => {
             </Col>
         </Row>
 
+        </div>
+
+        <div>
+           <h3>Top Billed Cast</h3>
+           <Row>
+                {topBilledActors.map((person,index) =>
+                 (index < 8) ?
+                 <Col
+                 style={{width: '10%'}}
+                 key = {person.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  <Person person={person} size={size} />
+                 </Col>
+                 : null
+                )}
+
+           </Row>
         </div>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30.4" height="30.4" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">

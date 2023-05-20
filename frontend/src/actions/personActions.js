@@ -8,6 +8,9 @@ import {
     SAVE_PERSON_DETAILS_REQUEST,
     SAVE_PERSON_DETAILS_SUCCESS ,
     SAVE_PERSON_DETAILS_FAIL,
+    TOP_BILLED_ACTORS_REQUEST,
+    TOP_BILLED_ACTORS_SUCCESS,
+    TOP_BILLED_ACTORS_FAIL,
 
 } from '../constants/personConstants'
 
@@ -66,3 +69,23 @@ export const savePersonDetails = (person)=> async(dispach)=> {
         })
     }
 }
+
+export const listTopBilledActors = (movie_id)=> async(dispach)=> {
+    try{
+        dispach({type: TOP_BILLED_ACTORS_REQUEST})
+        const response = await fetchData(`movie/${movie_id}/credits`);
+        console.log(response.cast)
+        dispach({
+            type: TOP_BILLED_ACTORS_SUCCESS,
+            payload: response.cast
+        })
+
+    }catch(error){
+        dispach({
+            type: TOP_BILLED_ACTORS_FAIL,
+            payload: error.response
+        })
+    }
+}
+
+
