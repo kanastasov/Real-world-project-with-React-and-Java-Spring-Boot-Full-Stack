@@ -178,7 +178,12 @@ const MovieScreen = ({match}) => {
                  : null
                 )}
 
-
+            <Link to={`/movie/${id}/review`}>
+                <Card.Title style={{color: 'black'}} as ='div'>
+                    <strong>Read All Reviews</strong>
+                </Card.Title>
+            </Link>
+                
               </Row>
             </div>
 
