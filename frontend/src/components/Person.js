@@ -10,7 +10,7 @@ const Person = ({person, size}) => {
         <Card className='my-3 p-3 rounded'>
             <a href={`/api/people/${person?.id}`}>
         <CardImg 
-         style={{width: {size}}}
+        style={{width: {size}}}
         src = {`https://image.tmdb.org/t/p/w500${person?.profile_path}`} variant = 'top'/>
             </a>
 
