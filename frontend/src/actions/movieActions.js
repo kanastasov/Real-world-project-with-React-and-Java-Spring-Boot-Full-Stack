@@ -66,3 +66,5 @@ export const saveMovieDetails = (movie)=> async(dispach)=> {
         })
     }
 }
+
+

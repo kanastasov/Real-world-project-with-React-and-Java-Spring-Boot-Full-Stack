@@ -7,8 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listMovieDetails,saveMovieDetails } from '../actions/movieActions';
 import {listTopBilledActors} from '../actions/personActions'
 import {listReviews} from '../actions/reviewsActions'
+import {listRecomendation} from '../actions/recomendationActions'
 import Reviews from '../components/Reviews'
 import Person from '../components/Person'
+import Recomendation from '../components/Recomendation';
 
 
 const MovieScreen = ({match}) => {
@@ -24,6 +26,14 @@ const MovieScreen = ({match}) => {
 
     const movieReviewsList = useSelector(state => state.movieReviewsList)
     const {movieReviews} = movieReviewsList
+
+    const recomendation = useSelector(state => state.recomendation)
+    const {recomendationData} = recomendation
+
+    console.log(recomendationData)
+    
+
+    
     
   console.log(movieReviews)
 
@@ -36,6 +46,8 @@ const MovieScreen = ({match}) => {
         dispatch(listMovieDetails(id))
         dispatch(listTopBilledActors(id))
         dispatch(listReviews(id))
+        dispatch(listRecomendation(id))
+
 
 
     }, [dispatch, id])
@@ -224,6 +236,31 @@ const MovieScreen = ({match}) => {
             <div>
               Duration {movie?.runtime}
             </div>
+
+
+            <div>
+              <h3>Recommendations</h3>
+              <Row>
+            
+              {recomendationData.map((recomendation,index) =>
+                 (index < 4) ?
+                 <Col
+                 key = {recomendation.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  <Recomendation recomendation={recomendation} size={size} />
+                 </Col>
+                 : null
+                )}
+
+            <Link to={`/movie/${id}/review`}>
+                <Card.Title style={{color: 'black'}} as ='div'>
+                    <strong>Read All Reviews</strong>
+                </Card.Title>
+            </Link>
+                
+              </Row>
+            </div>
+
         <button className='btn btn-dark my-3'  onClick={saveMovies}>Edit Page</button>
 
         

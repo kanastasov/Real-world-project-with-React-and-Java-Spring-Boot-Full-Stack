@@ -6,6 +6,7 @@ import { movieListReducer,movieDetailsReducer, saveMovieDetailsReducer } from '.
 import {tvListReducer, tvDetailsReducer,saveTVDetailsReducer} from './reducers/tvListReducer'
 import {personDetailsReducer, savePersonDetailsReducer, personListReducer,actorsTopBilledReducer} from './reducers/personListReducer'
 import {movieReviewsListReducer} from './reducers/movieReviewsListReducer'
+import {recomendationListReducer} from './reducers/recomendationReducer'
 const reducer = combineReducers({
     movieList: movieListReducer,
     movieDetails: movieDetailsReducer,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
     personList: personListReducer,
     actorsTopBilled: actorsTopBilledReducer,
     movieReviewsList: movieReviewsListReducer,
+    recomendation: recomendationListReducer,
 
 })
 
