@@ -18,7 +18,7 @@ console.log(tempAvatar)
         <Card className='my-3 p-3 rounded'>
             <a href={`/api/people/${review?.id}`}>
         <CardImg 
-        src = {tempAvatar} variant = 'top'/>
+              src = {tempAvatar} variant = 'top'/>
             </a>
 
     <Card.Body>
