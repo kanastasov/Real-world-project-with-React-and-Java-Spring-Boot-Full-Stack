@@ -8,12 +8,15 @@ import { listMovieDetails,saveMovieDetails } from '../actions/movieActions';
 import {listTopBilledActors} from '../actions/personActions'
 import {listReviews} from '../actions/reviewsActions'
 import {listRecomendation} from '../actions/recomendationActions'
+import {listVideos} from '../actions/videoActions'
 import Reviews from '../components/Reviews'
 import Person from '../components/Person'
 import Recomendation from '../components/Recomendation';
+import Iframe from 'react-iframe'
 
 
 const MovieScreen = ({match}) => {
+    const youtubeKey = "http://www.youtube.com/embed/"
     const size = 175
     const {id} = useParams();
     const dispatch = useDispatch()
@@ -30,12 +33,13 @@ const MovieScreen = ({match}) => {
     const recomendation = useSelector(state => state.recomendation)
     const {recomendationData} = recomendation
 
-    console.log(recomendationData)
     
+    const video = useSelector(state => state.video)
+    const {movieVideo} = video
 
     
     
-  console.log(movieReviews)
+  console.log(movieVideo)
 
 
 
@@ -47,6 +51,8 @@ const MovieScreen = ({match}) => {
         dispatch(listTopBilledActors(id))
         dispatch(listReviews(id))
         dispatch(listRecomendation(id))
+        dispatch(listVideos(id))
+        
 
 
 
@@ -237,6 +243,37 @@ const MovieScreen = ({match}) => {
               Duration {movie?.runtime}
             </div>
 
+
+            <div>
+              <h3>Most popular</h3>
+              <Row>
+            
+              {movieVideo.map((movie,index) =>
+                 (index < 1) ?
+                 <Col
+                 key = {movie.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  
+              <Iframe url={youtubeKey + movie.key}
+                      width="1840px"
+                      height="300px"
+                      id=""
+                      className=""
+                      display="block"
+                      position="relative"/>
+                            
+                 </Col>
+                 : null
+                )}
+
+            <Link to={`/movie/${id}/review`}>
+                <Card.Title style={{color: 'black'}} as ='div'>
+                    <strong>Read All Reviews</strong>
+                </Card.Title>
+            </Link>
+                
+              </Row>
+            </div>
 
             <div>
               <h3>Recommendations</h3>

@@ -1,0 +1,3 @@
+export const VIDEO_REQUEST = 'VIDEO_REQEST'
+export const VIDEO_SUCCESS = 'VIDEO_SUCCESS'
+export const VIDEO_FAIL = 'VIDEO_FAIL'
