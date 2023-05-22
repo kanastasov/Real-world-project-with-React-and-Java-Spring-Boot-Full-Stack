@@ -8,7 +8,9 @@ import {
     SAVE_TV_DETAILS_REQUEST,
     SAVE_TV_DETAILS_SUCCESS,
     SAVE_TV_DETAILS_FAIL,
-    
+    SERIES_CAST_REQUEST,
+    SERIES_CAST_SUCCESS ,
+    SERIES_CAST_FAIL,
 } from '../constants/tvConstants'
 
 import { fetchData,backEndCall } from '../util/helper'
@@ -63,6 +65,27 @@ export const saveTVDetails = (tv)=> async(dispach)=> {
     }catch(error){
         dispach({
             type: SAVE_TV_DETAILS_FAIL,
+            payload: error.response
+        })
+    }
+}
+
+// https://api.themoviedb.org/3/tv/130542-bhagya-lakshmi?api_key=134394aa4ce3b3f13628fa60f2f17bfe
+export const listSeriesCastTV= (tvId)=> async(dispach)=> {
+    try{
+        dispach({type: SERIES_CAST_REQUEST})
+        const response = await fetchData(`tv/${tvId}/credits`);
+
+        console.log(response)
+
+        dispach({
+            type: SERIES_CAST_SUCCESS,
+            payload: response
+        })
+
+    }catch(error){
+        dispach({
+            type: SERIES_CAST_FAIL,
             payload: error.response
         })
     }
