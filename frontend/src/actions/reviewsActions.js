@@ -7,10 +7,10 @@ import {
 import { fetchData } from '../util/helper'
 
 
-export const listReviews = (movie_id)=> async(dispach)=> {
+export const listReviews = (movie_id, type)=> async(dispach)=> {
     try{
         dispach({type: REVIEW_REQUEST})
-        const response = await fetchData(`movie/${movie_id}/reviews`);
+        const response = await fetchData(`${type}/${movie_id}/reviews`);
         console.log(response.results)
         dispach({
             type: REVIEW_SUCCESS,

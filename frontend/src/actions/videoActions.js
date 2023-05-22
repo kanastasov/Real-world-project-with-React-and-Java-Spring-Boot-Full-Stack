@@ -7,10 +7,10 @@ import {
 import { fetchData } from '../util/helper'
 
 
-export const listVideos = (movie_id)=> async(dispach)=> {
+export const listVideos = (movie_id, type)=> async(dispach)=> {
     try{
         dispach({type: VIDEO_REQUEST})
-        const response = await fetchData(`movie/${movie_id}/videos`);
+        const response = await fetchData(`${type}/${movie_id}/videos`);
         console.log(response.results)
         dispach({
             type: VIDEO_SUCCESS,

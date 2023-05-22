@@ -17,6 +17,7 @@ import Iframe from 'react-iframe'
 
 const MovieScreen = ({match}) => {
     const youtubeKey = "http://www.youtube.com/embed/"
+    const type = 'movie'
     const size = 175
     const {id} = useParams();
     const dispatch = useDispatch()
@@ -49,9 +50,9 @@ const MovieScreen = ({match}) => {
     useEffect(() => {
         dispatch(listMovieDetails(id))
         dispatch(listTopBilledActors(id))
-        dispatch(listReviews(id))
-        dispatch(listRecomendation(id))
-        dispatch(listVideos(id))
+        dispatch(listReviews(id,type))
+        dispatch(listRecomendation(id, type))
+        dispatch(listVideos(id,type))
         
 
 

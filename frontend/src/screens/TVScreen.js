@@ -5,9 +5,17 @@ import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listTvDetails, saveTVDetails, listSeriesCastTV } from '../actions/tvActions';
-
+import {listReviews} from '../actions/reviewsActions'
+import Reviews from '../components/Reviews';
 import Person from '../components/Person';
+import Iframe from 'react-iframe'
+import {listVideos} from '../actions/videoActions'
+import {listRecomendation} from '../actions/recomendationActions'
+import Recomendation from '../components/Recomendation';
 const TVScreen = ({match}) => {
+    const youtubeKey = "http://www.youtube.com/embed/"
+
+    const type = 'tv'
     const size = 175;
     const dispatch = useDispatch()
     const tvDetails = useSelector(state => state.tvDetails)
@@ -16,9 +24,16 @@ const TVScreen = ({match}) => {
     const seriesCastStore = useSelector(state => state.seriesCastStore)
     const {seriesCast} = seriesCastStore
 
+    const movieReviewsList = useSelector(state => state.movieReviewsList)
+    const {movieReviews} = movieReviewsList
+
+    const recomendation = useSelector(state => state.recomendation)
+    const {recomendationData} = recomendation
+
     console.log(seriesCast)
 
-
+    const video = useSelector(state => state.video)
+    const {movieVideo} = video
 
 
     const {id} = useParams();
@@ -26,7 +41,10 @@ const TVScreen = ({match}) => {
         useEffect(() => {
             dispatch(listTvDetails(id))
             dispatch(listSeriesCastTV(id))
-    
+            dispatch(listReviews(id, type))
+            dispatch(listVideos(id, type))
+            dispatch(listRecomendation(id, type))
+
         }, [dispatch])
     
 
@@ -132,7 +150,7 @@ const TVScreen = ({match}) => {
         <div>
            <h3>Series Cast</h3>
            <Row>
-                {seriesCast.cast.map((person,index) =>
+                {seriesCast?.cast?.map((person,index) =>
                  (index < 8) ?
                  <Col
                  style={{width: '10%'}}
@@ -145,6 +163,88 @@ const TVScreen = ({match}) => {
 
            </Row>
         </div>
+
+
+        <div>
+              <strong>Full Cast & Crew</strong>
+              <Row>
+            
+              {movieReviews.map((review,index) =>
+                 (index < 1) ?
+                 <Col
+             
+                 key = {review.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  <Reviews review={review} size={size} />
+                 </Col>
+                 : null
+                )}
+
+            <Link to={`/movie/${id}/review`}>
+                <Card.Title style={{color: 'black'}} as ='div'>
+                    <strong>Read All Reviews</strong>
+                </Card.Title>
+            </Link>
+                
+              </Row>
+            </div>
+
+            
+            <div>
+              <h3>Most popular</h3>
+              <Row>
+            
+              {movieVideo.map((movie,index) =>
+                 (index < 1) ?
+                 <Col
+                 key = {movie.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  
+              <Iframe url={youtubeKey + movie.key}
+                      width="1840px"
+                      height="300px"
+                      id=""
+                      className=""
+                      display="block"
+                      position="relative"/>
+                            
+                 </Col>
+                 : null
+                )}
+
+            <Link to={`/movie/${id}/review`}>
+                <Card.Title style={{color: 'black'}} as ='div'>
+                    <strong>Read All Reviews</strong>
+                </Card.Title>
+            </Link>
+                
+              </Row>
+            </div>
+
+            
+            <div>
+              <h3>Recommendations</h3>
+              <Row>
+            
+              {recomendationData.map((recomendation,index) =>
+                 (index < 4) ?
+                 <Col
+                 key = {recomendation.id} sm={12} md={6}lg={4} xl={3}
+                 >
+                  <Recomendation recomendation={recomendation} size={size} />
+                 </Col>
+                 : null
+                )}
+
+            <Link to={`/movie/${id}/review`}>
+                <Card.Title style={{color: 'black'}} as ='div'>
+                    <strong>Read All Reviews</strong>
+                </Card.Title>
+            </Link>
+                
+              </Row>
+            </div>
+
         <button className='btn btn-dark my-3'  onClick={saveTV}>Edit Page</button>
 
     </div>

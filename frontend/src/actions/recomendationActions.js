@@ -8,10 +8,10 @@ import {
 import { fetchData } from '../util/helper'
 
 
-export const listRecomendation = (movie_id)=> async(dispach)=> {
+export const listRecomendation = (movie_id, type)=> async(dispach)=> {
     try{
         dispach({type: RECOMENDATION_REQUEST})
-        const response = await fetchData(`movie/${movie_id}/recommendations`);
+        const response = await fetchData(`${type}/${movie_id}/recommendations`);
         console.log(response.results)
         dispach({
             type: RECOMENDATION_SUCCESS,
