@@ -115,7 +115,7 @@
 }
 
 .row a {
-color: white;
+color: black;
 }
 
 .row a:hover{
@@ -191,4 +191,5 @@ form a:hover {
 
 .style-li-person{
   margin-right: 30px;
+
 }

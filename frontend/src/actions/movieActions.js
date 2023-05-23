@@ -11,10 +11,13 @@ import {
     MOVIE_CREDITS_REQUEST,
     MOVIE_CREDITS_SUCCESS ,
     MOVIE_CREDITS_FAIL,
+    MOVIE_SEARCH_REQUEST,
+    MOVIE_SEARCH_SUCCESS,
+    MOVIE_SEARCH_FAIL,
 
 } from '../constants/movieConstants'
 
-import { fetchData,backEndCall } from '../util/helper'
+import { fetchData,backEndCall, searchData } from '../util/helper'
 
 export const listMovies=(movie)=> async(dispach)=> {
     try{
@@ -88,4 +91,25 @@ export const listMovieCredits = (id)=> async(dispach)=> {
         })
     }
 }
+
+
+export const listMovieSearch= (movie, searchTerm, pageNumber)=> async(dispach)=> {
+    try{
+        dispach({type: MOVIE_SEARCH_REQUEST})
+        const response = await searchData(movie, searchTerm, pageNumber);
+        console.log(response.results)
+        dispach({
+            type: MOVIE_SEARCH_SUCCESS,
+            payload: response.results
+        })
+
+    }catch(error){
+        dispach({
+            type: MOVIE_SEARCH_FAIL,
+            payload: error.response
+        })
+    }
+}
+
+
 

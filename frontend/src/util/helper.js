@@ -32,6 +32,21 @@ export async function fetchData(endpoint){
 }
 
 
+export async function searchData(movie, searchTerm, pageNumber =1){
+    const key=  localObj.api.key;
+    const url = localObj.api.url;
+
+
+    const response = await fetch(`${url}search/${movie}?api_key=${key}&language=en-Us&query=${searchTerm}&page=${pageNumber}`);
+    console.log(`${url}search/${movie}?api_key=${key}&language=en-Us&query=${searchTerm}&page=${pageNumber}`)
+    const data = await response.json();
+    return data
+}
+
+
+
+
+
 // http://localhost:8081/api/movies
 export async function backEndCall(endpoint, tempObj){
     const url = localObj.backend.url;
