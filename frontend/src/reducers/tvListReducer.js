@@ -14,6 +14,10 @@ import {
     CURRENT_SEASON_REQUEST,
     CURRENT_SEASON_SUCCESS,
     CURRENT_SEASON_FAIL,
+    
+    TV_SEARCH_REQUEST,
+    TV_SEARCH_SUCCESS,
+    TV_SEARCH_FAIL,
 } from '../constants/tvConstants'
 
 
@@ -87,6 +91,22 @@ export const currentSeasonReducer = (state = {currentSesonEpisodes:{}}, action) 
         case CURRENT_SEASON_SUCCESS:
             return {loading: false, currentSesonEpisodes: action.payload}
         case CURRENT_SEASON_FAIL:
+            return {
+                loading:false, error: action.payload
+            }
+            default:
+                return state
+    }
+}
+
+
+export const tvSearchListReducer = (state = {tvs:{}}, action) => {
+    switch(action.type){
+        case TV_SEARCH_REQUEST:
+            return {loading: true, ...state}
+        case TV_SEARCH_SUCCESS:
+            return {loading: false, currentSesonEpisodes: action.payload}
+        case TV_SEARCH_FAIL:
             return {
                 loading:false, error: action.payload
             }
