@@ -178,3 +178,17 @@ form a:hover {
 .register {
   padding-left: 30px;
 }
+
+.style-ul-person{
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: flex-start;
+  list-style-type: none;
+  padding-left: 0;
+
+}
+
+.style-li-person{
+  margin-right: 30px;
+}
