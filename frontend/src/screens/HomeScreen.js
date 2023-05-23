@@ -14,11 +14,10 @@ const HomeScreen = ({movieRender}) => {
     const [totalResults, setTotalResults] = useState(0)
     const [currentPage, setCurrentPage] = useState(1)
     const [currentMovies, setCurrentMovies] = useState(movieList)
-
-
-
     const movieSearchList = useSelector(state => state.movieSearchList)
     console.log(movieSearchList)
+
+    
     // const {movies} = movieSearchList
 
 

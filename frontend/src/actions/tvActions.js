@@ -14,9 +14,13 @@ import {
     CURRENT_SEASON_REQUEST,
     CURRENT_SEASON_SUCCESS,
     CURRENT_SEASON_FAIL,
+
+    TV_SEARCH_REQUEST,
+    TV_SEARCH_SUCCESS,
+    TV_SEARCH_FAIL,
 } from '../constants/tvConstants'
 
-import { fetchData,backEndCall } from '../util/helper'
+import { fetchData,backEndCall, searchData } from '../util/helper'
 
 export const listTv=(tv)=> async(dispach)=> {
     try{
@@ -114,3 +118,23 @@ export const listCurrentSeasonTV= (tvId)=> async(dispach)=> {
         })
     }
 }
+
+
+export const listTVSearch= (movie, searchTerm, pageNumber)=> async(dispach)=> {
+    try{
+        dispach({type: TV_SEARCH_REQUEST})
+        const response = await searchData(movie, searchTerm, pageNumber);
+        console.log(response.results)
+        dispach({
+            type: TV_SEARCH_SUCCESS,
+            payload: response.results
+        })
+
+    }catch(error){
+        dispach({
+            type: TV_SEARCH_FAIL,
+            payload: error.response
+        })
+    }
+}
+
