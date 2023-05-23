@@ -12,7 +12,7 @@ const Reviews = ({review}) => {
         var tempAvatar = review?.author_details?.avatar_path.substring(1);
 
     }
-console.log(tempAvatar)
+    console.log(tempAvatar)
     return (
         
         <Card className='my-3 p-3 rounded'>

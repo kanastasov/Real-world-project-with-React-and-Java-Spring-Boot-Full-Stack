@@ -11,6 +11,9 @@ import {
     SERIES_CAST_REQUEST,
     SERIES_CAST_SUCCESS ,
     SERIES_CAST_FAIL,
+    CURRENT_SEASON_REQUEST,
+    CURRENT_SEASON_SUCCESS,
+    CURRENT_SEASON_FAIL,
 } from '../constants/tvConstants'
 
 import { fetchData,backEndCall } from '../util/helper'
@@ -86,6 +89,27 @@ export const listSeriesCastTV= (tvId)=> async(dispach)=> {
     }catch(error){
         dispach({
             type: SERIES_CAST_FAIL,
+            payload: error.response
+        })
+    }
+}
+
+
+// https://api.themoviedb.org/3/tv/60625/season/1?api_key=134394aa4ce3b3f13628fa60f2f17bfe
+export const listCurrentSeasonTV= (tvId)=> async(dispach)=> {
+    try{
+        dispach({type: CURRENT_SEASON_REQUEST})
+        const response = await fetchData(`tv/${tvId}/season/1`);
+        console.log(response)
+
+        dispach({
+            type: CURRENT_SEASON_SUCCESS,
+            payload: response
+        })
+
+    }catch(error){
+        dispach({
+            type: CURRENT_SEASON_FAIL,
             payload: error.response
         })
     }
