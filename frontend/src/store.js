@@ -2,7 +2,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import { movieListReducer,movieDetailsReducer, saveMovieDetailsReducer, movieCreditsReducer } from './reducers/movieListReducer'
+import { movieListReducer,movieDetailsReducer, saveMovieDetailsReducer, movieCreditsReducer,movieSearchListReducer } from './reducers/movieListReducer'
 import {tvListReducer, tvDetailsReducer,saveTVDetailsReducer, seriesCastReducer, currentSeasonReducer} from './reducers/tvListReducer'
 import {personDetailsReducer, savePersonDetailsReducer, personListReducer,actorsTopBilledReducer} from './reducers/personListReducer'
 import {movieReviewsListReducer} from './reducers/movieReviewsListReducer'
@@ -25,6 +25,7 @@ const reducer = combineReducers({
     seriesCastStore: seriesCastReducer,
     currentSeason: currentSeasonReducer,
     movieCredits: movieCreditsReducer,
+    movieSearchList: movieSearchListReducer,
 
 })
 

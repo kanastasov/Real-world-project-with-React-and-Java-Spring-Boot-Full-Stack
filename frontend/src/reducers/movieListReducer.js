@@ -11,6 +11,9 @@ import {
     MOVIE_CREDITS_REQUEST,
     MOVIE_CREDITS_SUCCESS ,
     MOVIE_CREDITS_FAIL,
+    MOVIE_SEARCH_REQUEST,
+    MOVIE_SEARCH_SUCCESS,
+    MOVIE_SEARCH_FAIL,
 
 } from '../constants/movieConstants'
 
@@ -67,6 +70,22 @@ export const movieCreditsReducer = (state = {movieCreditsObj:{}}, action) => {
         case MOVIE_CREDITS_SUCCESS:
             return {loading: false, movieCreditsObj: action.payload}
         case MOVIE_CREDITS_FAIL:
+            return {
+                loading:false, error: action.payload
+            }
+            default:
+                return state
+    }
+}
+
+
+export const movieSearchListReducer = (state = {movies:[]}, action) => {
+    switch(action.type){
+        case MOVIE_SEARCH_REQUEST:
+            return {loading: true, ...state}
+        case MOVIE_SEARCH_SUCCESS:
+            return {loading: false, movies: action.payload}
+        case MOVIE_SEARCH_FAIL:
             return {
                 loading:false, error: action.payload
             }
