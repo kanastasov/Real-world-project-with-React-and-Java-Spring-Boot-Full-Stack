@@ -3,7 +3,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { movieListReducer,movieDetailsReducer, saveMovieDetailsReducer } from './reducers/movieListReducer'
-import {tvListReducer, tvDetailsReducer,saveTVDetailsReducer, seriesCastReducer} from './reducers/tvListReducer'
+import {tvListReducer, tvDetailsReducer,saveTVDetailsReducer, seriesCastReducer, currentSeasonReducer} from './reducers/tvListReducer'
 import {personDetailsReducer, savePersonDetailsReducer, personListReducer,actorsTopBilledReducer} from './reducers/personListReducer'
 import {movieReviewsListReducer} from './reducers/movieReviewsListReducer'
 import {recomendationListReducer} from './reducers/recomendationReducer'
@@ -23,6 +23,7 @@ const reducer = combineReducers({
     recomendation: recomendationListReducer,
     video: videoReducer,
     seriesCastStore: seriesCastReducer,
+    currentSeason: currentSeasonReducer,
 
 })
 
