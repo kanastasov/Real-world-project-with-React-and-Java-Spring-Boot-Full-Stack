@@ -114,6 +114,81 @@
   color: white;
 }
 
+.row-border-top {
+  border-top: 1px solid #d7d7d7;
+  padding: 30px 0;
+}
+
+.row-border-top h3 {
+  color: black;
+}
+
+.circle-image .card-img-top { 
+  height: 64px;
+  width: 64px !important;
+  border-radius: 50%;
+  border-top-left-radius: 50% !important;
+  border-top-right-radius: 50% !important;
+  margin-right: 20px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+}
+
+.row .card-title {
+  margin: 0;  
+}
+
+.row .card-title a {
+  font-weight: 700;
+  color: black;
+  text-decoration: none;
+  font-size: 1.3em;
+}
+
+h8 p {
+  font-family:'Source Sans Pro', Arial, sans-serif;
+  margin-bottom: 0px;
+  font-weight: 300;
+  font-size: 0.9em;
+}
+.row h8 p a {
+  color: black;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.card-body.card-review {
+  margin-left: 84px;
+
+  padding: 0;
+  padding-top: 1.5rem;
+}
+
+.card-title a > span {
+  background-color: black;
+  color: white;
+  padding: 1px 8px;
+  margin-left: 14px;
+  font-size: 0.9em;
+  border-color: black;
+  border-radius: 8px;
+}
+
+.card-title a span svg {
+  display: inline-block;
+}
+
+.card-title a span > span {
+  vertical-align: top;
+}
+
+.card-title a span + span {
+  vertical-align: baseline;
+}
+
 .row a {
 color: black;
 }
@@ -124,6 +199,10 @@ color: black;
 
 .row ul {
   padding-left : 0px;
+}
+
+.row ul li a {
+  color: white;
 }
 
 form a {
