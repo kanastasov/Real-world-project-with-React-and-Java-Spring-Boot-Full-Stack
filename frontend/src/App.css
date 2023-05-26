@@ -294,3 +294,39 @@ form a:hover {
   margin-right: 30px;
 
 }
+
+.grey-column {
+  max-width: 126px;
+}
+
+.card.current-season {
+  display: flex;
+  flex-direction: row;
+}
+
+.card.current-season .card-img-top {
+  min-width: 130px;
+}
+
+.row.gutter {
+  --bs-gutter-x: 0;
+}
+
+.card.current-season h2 a {
+  text-decoration: none;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.card.current-season h4 {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.season-overview {
+  margin-top: 20px;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  font-size: 16px;
+}
