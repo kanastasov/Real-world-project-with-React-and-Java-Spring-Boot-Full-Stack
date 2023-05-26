@@ -168,7 +168,8 @@ const MovieScreen = ({match}) => {
         <div className="flex pt-8">
             <div className="white-column">
             <h3>Top Billed Cast</h3>
-            <Row>
+
+            <Row className="row-border-top2">
                 {topBilledActors.map((person,index) =>
                   (index < 8) ?
                   <Col
@@ -227,16 +228,15 @@ const MovieScreen = ({match}) => {
 
             <div>
               <strong>Full Cast & Crew</strong>
-              <Row>
+
+              <Row className="row-border-top circle-image">
+              <h3>Reviews</h3>
             
               {movieReviews.map((review,index) =>
                  (index < 1) ?
-                 <Col key = {review.id} sm={12} md={6} lg={4} xl={3}>
-                    <Reviews review={review} size={size} />
-                 </Col>
-                 : null
-                )}
-
+                 // md={6} lg={4} xl={3}*/
+                 <Col key = {review.id} sm={12} >
+                 
                 <Link to={`/movie/${id}/review`}>
                     <Card.Title style={{color: 'black'}} as ='div'>
                         <strong>Read All Reviews</strong>
@@ -251,7 +251,7 @@ const MovieScreen = ({match}) => {
 
             <div>
               <h3>Most popular</h3>
-              <Row>
+              <Row className="row-border-top">
             
               {movieVideo.map((movie,index) =>
                  (index < 1) ?
@@ -282,7 +282,7 @@ const MovieScreen = ({match}) => {
 
             <div>
               <h3>Recommendations</h3>
-              <Row>
+              <Row className="row-border-top recommendations">
             
               {recomendationData.map((recomendation,index) =>
                  (index < 4) ?
