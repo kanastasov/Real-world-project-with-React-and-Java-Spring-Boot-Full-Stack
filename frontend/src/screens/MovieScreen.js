@@ -165,50 +165,26 @@ const MovieScreen = ({match}) => {
 
         </div>
 
-        <div>
-           <h3>Top Billed Cast</h3>
-           <Row>
+        <div className="flex pt-8">
+            <div className="white-column">
+            <h3>Top Billed Cast</h3>
+            <Row>
                 {topBilledActors.map((person,index) =>
-                 (index < 8) ?
-                 <Col
-                 style={{width: '10%'}}
-                 key = {person.id} sm={12} md={6}lg={4} xl={3}
-                 >
+                  (index < 8) ?
+                  <Col
+                  style={{width: '12%'}}
+                  key = {person.id} sm={12} md={6}lg={4} xl={3}
+                  >
                   <Person person={person} size={size} />
-                 </Col>
-                 : null
+                  </Col>
+                  : null
                 )}
 
-           </Row>
-        </div>
+            </Row>
+            </div>    
 
-            <div>
-              <strong>Full Cast & Crew</strong>
-              <Row>
-            
-              {movieReviews.map((review,index) =>
-                 (index < 1) ?
-                 <Col
-             
-                 key = {review.id} sm={12} md={6}lg={4} xl={3}
-                 >
-                  <Reviews review={review} size={size} />
-                 </Col>
-                 : null
-                )}
-
-            <Link to={`/movie/${id}/review`}>
-                <Card.Title style={{color: 'black'}} as ='div'>
-                    <strong>Read All Reviews</strong>
-                </Card.Title>
-            </Link>
-                
-              </Row>
-            </div>
-
-
-
-            <div>
+            <div className="grey-column">
+            <div className="flex place-content-between pb-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30.4" height="30.4" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
                 </svg>
@@ -225,25 +201,53 @@ const MovieScreen = ({match}) => {
                 </svg>
             </div>
 
-            <div>
-               Status{movie?.status}
+            <div className="pb-2">
+               <div className="font-bold">Status </div> {movie?.status}
             </div>
-            <div>
-               Release Date{movie?.release_date}
+            <div className="pb-2">
+            <div className="font-bold">Release Date </div> {movie?.release_date}
             </div>
 
-            <div>
-              Genres {movie?.genres?.map(genre =>
+            <div className="pb-2">
+            <div className="font-bold">Genres</div>
+              {movie?.genres?.map(genre =>
                 (genre.name) + ', ')}   
             </div>
-            <div>
-              Production {movie?.production_companies?.map(genre =>
+            <div className="pb-2">
+            <div className="font-bold">Production</div>
+              {movie?.production_companies?.map(genre =>
                 (genre.name) + ', ')}
             </div>
+            <div className="pb-2">
+            <div className="font-bold">Duration</div>
+              {movie?.runtime}
+            </div>
+          </div>
+        </div>
+
             <div>
-              Duration {movie?.runtime}
+              <strong>Full Cast & Crew</strong>
+              <Row>
+            
+              {movieReviews.map((review,index) =>
+                 (index < 1) ?
+                 <Col key = {review.id} sm={12} md={6} lg={4} xl={3}>
+                    <Reviews review={review} size={size} />
+                 </Col>
+                 : null
+                )}
+
+                <Link to={`/movie/${id}/review`}>
+                    <Card.Title style={{color: 'black'}} as ='div'>
+                        <strong>Read All Reviews</strong>
+                    </Card.Title>
+                </Link>
+                
+              </Row>
             </div>
 
+
+            
 
             <div>
               <h3>Most popular</h3>
