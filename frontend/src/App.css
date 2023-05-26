@@ -160,6 +160,28 @@ h8 p {
   text-decoration: none;
 }
 
+.row.recommendations .card-img-top {
+  height: 220px;
+}
+
+.row.recommendations .card-body {
+  padding: 0;
+  margin-top: 4px;
+}
+
+.row.recommendations .card-body a {
+  text-decoration: none;
+}
+
+.row.recommendations .card-body a:hover {
+  color: black;
+}
+
+.row.recommendations .card-body p.card-text {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-body.card-review {
   margin-left: 84px;
 

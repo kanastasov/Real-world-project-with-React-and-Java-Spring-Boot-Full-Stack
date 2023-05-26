@@ -284,7 +284,7 @@ const MovieScreen = ({match}) => {
 
             <div>
               <h3>Recommendations</h3>
-              <Row className="row-border-top">
+              <Row className="row-border-top recommendations">
             
               {recomendationData.map((recomendation,index) =>
                  (index < 4) ?
