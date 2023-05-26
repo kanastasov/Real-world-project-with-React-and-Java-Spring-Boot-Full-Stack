@@ -247,11 +247,7 @@ const TVScreen = ({match}) => {
                 <h3>Current Season</h3>
                 <Row className="gutter">
                     <CurrentSeason currentSesonEpisodes={currentSesonEpisodes} />
-                    <Link to={`/movie/${id}/review`}>
-                        <Card.Title style={{color: 'black'}} as ='div'>
-                            <strong>Read All Reviews</strong>
-                        </Card.Title>
-                    </Link>
+                    
                 </Row>
             </div>
 
@@ -280,11 +276,7 @@ const TVScreen = ({match}) => {
                  : null
                 )}
 
-            <Link to={`/movie/${id}/review`}>
-                <Card.Title style={{color: 'black'}} as ='div'>
-                    <strong>Read All Reviews</strong>
-                </Card.Title>
-            </Link>
+     
                 
               </Row>
             </div>
@@ -304,11 +296,7 @@ const TVScreen = ({match}) => {
                  : null
                 )}
 
-            <Link to={`/movie/${id}/review`}>
-                <Card.Title style={{color: 'black'}} as ='div'>
-                    <strong>Read All Reviews</strong>
-                </Card.Title>
-            </Link>
+     
                 
               </Row>
             </div>

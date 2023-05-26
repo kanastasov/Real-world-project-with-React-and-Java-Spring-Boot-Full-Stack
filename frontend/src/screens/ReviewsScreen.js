@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
-import { Col, CardImg} from 'react-bootstrap'
+import { Col, CardImg, Row} from 'react-bootstrap'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { listMovieDetails } from '../actions/movieActions';
@@ -10,6 +10,7 @@ import Reviews from '../components/Reviews'
 
 
 const ReviewsScreen = ({match}) => {
+    const type = 'movie'
     const size = 175
     const {id} = useParams();
     const dispatch = useDispatch()
@@ -31,7 +32,7 @@ const ReviewsScreen = ({match}) => {
     useEffect(() => {
         dispatch(listMovieDetails(id))
         dispatch(listTopBilledActors(id))
-        dispatch(listReviews(id))
+        dispatch(listReviews(id,type))
 
 
     }, [dispatch, id])
@@ -42,28 +43,27 @@ const ReviewsScreen = ({match}) => {
     return (
 
          <>
-            <div>
+            <div className='div-set'>
             <CardImg style={{height: '87px', width: '58px'}} src = {`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} variant = 'top'/>
          
              {movie.title} {movie.release_date}
-
-                 <Link className='btn btn-dark my-3' to = '/'>Go Back</Link>
+        <p></p>
+            <Link className='my-3' to = '/'>Go Back</Link>
             </div>
-
+            <Row className="row-border-top circle-image">
             <div>                
-              {movieReviews.map((review,index) =>
+            {movieReviews.map((review,index) =>
                  (index < 4) ?
-                 <Col
-                 key = {review.id} sm={12} md={6}lg={4} xl={3}
-                 >
-                  <Reviews review={review} size={size} />
+                 // md={6} lg={4} xl={3}*/
+                 <Col key = {review.id} sm={12} >
+                    <Reviews review={review} size={size} />
                  </Col>
                  : null
                 )}
-                
+              
              
             </div>
-
+            </Row> 
             </>
 
      
