@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.MediaType;
 
+import com.kirilanastasoff.TheMovieDB.backend.jwt.JwtUtils;
 import com.kirilanastasoff.TheMovieDB.backend.model.ERole;
 import com.kirilanastasoff.TheMovieDB.backend.model.Movies;
 import com.kirilanastasoff.TheMovieDB.backend.model.Role;
@@ -37,7 +38,6 @@ import com.kirilanastasoff.TheMovieDB.backend.payload.response.JwtResponse;
 import com.kirilanastasoff.TheMovieDB.backend.payload.response.MessageResponse;
 import com.kirilanastasoff.TheMovieDB.backend.repository.RoleRepository;
 import com.kirilanastasoff.TheMovieDB.backend.repository.UserRepository;
-import com.kirilanastasoff.TheMovieDB.backend.security.JwtUtils;
 import com.kirilanastasoff.TheMovieDB.backend.services.MoviesService;
 import com.kirilanastasoff.TheMovieDB.backend.services.UserDetailsImpl;
 
@@ -74,7 +74,7 @@ public class AuthController {
 
 		}
 
-		User user = new User(request.getUsername(), request.getEmail(), request.getPassword());
+		User user = new User(request.getUsername(), request.getEmail(), encoder.encode(request.getPassword()));
 
 		Set<String> stringRoles = request.getRole();
 		Set<Role> roles = new HashSet<>();
@@ -111,7 +111,7 @@ public class AuthController {
 		return ResponseEntity.ok(new MessageResponse("User registered Succesfully!"));
 	}
 	
-	@RequestMapping(value = "/signin", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.POST)
+	@RequestMapping(value = "/login", produces = { MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.POST)
 	public ResponseEntity<?> authenticateUser(
 			@Valid @RequestBody LoginRequest loginRequest) {
 

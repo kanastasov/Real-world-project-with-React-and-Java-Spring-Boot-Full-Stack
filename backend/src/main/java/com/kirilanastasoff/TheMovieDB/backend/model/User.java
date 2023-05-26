@@ -35,7 +35,7 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@Size(max = 40)
+	@Size(max = 80)
 	@Column(name = "password")
 	private String password;
 
@@ -48,7 +48,7 @@ public class User {
 	}
 
 	public User( @Size(max = 20) String username, @Size(max = 40) @Email String email,
-			@Size(max = 40) String password) {
+			@Size(max = 80) String password) {
 		super();
 		this.username = username;
 		this.email = email;
