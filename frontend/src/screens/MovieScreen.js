@@ -168,6 +168,7 @@ const MovieScreen = ({match}) => {
         <div className="flex pt-8">
             <div className="white-column">
             <h3>Top Billed Cast</h3>
+
             <Row className="row-border-top2">
                 {topBilledActors.map((person,index) =>
                   (index < 8) ?
@@ -227,6 +228,7 @@ const MovieScreen = ({match}) => {
 
             <div>
               <strong>Full Cast & Crew</strong>
+
               <Row className="row-border-top circle-image">
               <h3>Reviews</h3>
             
@@ -234,11 +236,7 @@ const MovieScreen = ({match}) => {
                  (index < 1) ?
                  // md={6} lg={4} xl={3}*/
                  <Col key = {review.id} sm={12} >
-                    <Reviews review={review} size={size} />
-                 </Col>
-                 : null
-                )}
-
+                 
                 <Link to={`/movie/${id}/review`}>
                     <Card.Title style={{color: 'black'}} as ='div'>
                         <strong>Read All Reviews</strong>
