@@ -13,7 +13,7 @@ const Recomendation = ({recomendation}) => {
 
     return (
         
-        <Card className='my-3 p-3 rounded'>
+        <Card className='my-3 rounded'>
                <a href={`/movie/${recomendation.id}`}>
         <CardImg src = {`https://image.tmdb.org/t/p/w500${recomendation.poster_path}`} variant = 'top'/>
             </a>
@@ -24,16 +24,14 @@ const Recomendation = ({recomendation}) => {
                
      
 
-        <Card.Text style={{color: 'black'}} as ='h4'>
+        <Card.Text style={{color: 'black'}} as ='p'>
 
-        {recomendation?.title}
+            <a href="#">{recomendation?.title}</a>
+        
+            <Card.Text style={{color: 'grey'}} as ='span'>
+                {Math.round(recomendation.vote_average * 10)} %
+            </Card.Text>
         </Card.Text>
-        <Card.Text style={{color: 'grey'}} as ='h5'>
-
-           
-        {recomendation.vote_average * 10} %
-        </Card.Text>
-      
 
     </Card.Body>
         </Card>
