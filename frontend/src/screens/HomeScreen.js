@@ -12,23 +12,13 @@ const HomeScreen = ({movieRender}) => {
     const {movies} = movieList
     const [searchTerm, setSearchTerm] = useState("")
     const [totalResults, setTotalResults] = useState(0)
-    const [currentPage, setCurrentPage] = useState(1)
+    const [ setCurrentPage] = useState(1)
     const [currentMovies, setCurrentMovies] = useState(movieList)
-    const movieSearchList = useSelector(state => state.movieSearchList)
-    console.log(movieSearchList)
-
-    
-    // const {movies} = movieSearchList
-
-
-
-    console.log(movieRender)
-    // popular, now_playing, upcoming top_rated 
     useEffect(() => {
         dispatch(listMovies(movieRender))
 
 
-    }, [dispatch])
+    }, [dispatch, movieRender])
 
     function handleChange(value) {
         setSearchTerm(value)
@@ -36,7 +26,7 @@ const HomeScreen = ({movieRender}) => {
 
     async function search() {
         dispatch(listMovieSearch(movie, searchTerm))
-        const {results, total_pages, page, total_results} = await searchData(movie, searchTerm);
+        const {results, total_results} = await searchData(movie, searchTerm);
         setTotalResults(total_results)
         console.log(total_results)
         if(results.length > 1){
@@ -45,7 +35,7 @@ const HomeScreen = ({movieRender}) => {
     }
 
     async function nextPage(pageNumber) {
-        const {results, total_pages, page, total_results} = await searchData(movie, searchTerm, pageNumber);
+        const {results} = await searchData(movie, searchTerm, pageNumber);
         setCurrentMovies(results)
         console.log(results)
         setCurrentPage(pageNumber)

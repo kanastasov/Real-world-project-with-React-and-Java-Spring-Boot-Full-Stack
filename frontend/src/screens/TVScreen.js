@@ -1,6 +1,6 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
-import {Row, Col, Image, ListGroup, Card, Button, ListGroupItem, CardImg} from 'react-bootstrap'
+import {Row, Col,  Card, CardImg} from 'react-bootstrap'
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -53,7 +53,7 @@ const TVScreen = ({match}) => {
             dispatch(listRecomendation(id, type))
             dispatch(listCurrentSeasonTV(id))
 
-        }, [dispatch])
+        }, [dispatch, id])
     
 
 

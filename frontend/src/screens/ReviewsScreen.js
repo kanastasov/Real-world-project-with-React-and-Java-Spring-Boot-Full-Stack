@@ -1,14 +1,12 @@
-import React, {useState,useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Link, useParams} from 'react-router-dom'
-import {Row, Col, Image, ListGroup, Card, Button, ListGroupItem, CardImg} from 'react-bootstrap'
-import {CircularProgressbar} from 'react-circular-progressbar'
+import { Col, CardImg} from 'react-bootstrap'
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { listMovieDetails,saveMovieDetails } from '../actions/movieActions';
+import { listMovieDetails } from '../actions/movieActions';
 import {listTopBilledActors} from '../actions/personActions'
 import {listReviews} from '../actions/reviewsActions'
 import Reviews from '../components/Reviews'
-import Person from '../components/Person'
 
 
 const ReviewsScreen = ({match}) => {
@@ -16,10 +14,8 @@ const ReviewsScreen = ({match}) => {
     const {id} = useParams();
     const dispatch = useDispatch()
     const movieDetails = useSelector(state => state.movieDetails)
-    const {loading, error, movie} = movieDetails
+    const {movie} = movieDetails
 
-    const actorsTopBilled = useSelector(state => state.actorsTopBilled)
-    const {topBilledActors} = actorsTopBilled
 
 
     const movieReviewsList = useSelector(state => state.movieReviewsList)
@@ -40,29 +36,8 @@ const ReviewsScreen = ({match}) => {
 
     }, [dispatch, id])
 
+ 
 
-
-    const tempMovie = {
-        name: movie.original_title,
-        image: movie?.poster_path,
-        overview: movie.overview,
-        productionCompanies: movie.production_companies?.map(company => company.name),
-        userScore : movie.vote_average*10,
-        status: movie.status,
-        genres: movie.genres?.map(genre => genre.name),
-        duration: movie.runtime,
-        theMovieDbId: movie.id,
-        releaseDate: movie.release_date,
-
-    }
-    function saveMovies() {
-        dispatch(saveMovieDetails(tempMovie))
-    }
-    
-    if(movie?.author_details?.avatar_path != null){
-      var tempAvatar = movie?.author_details?.avatar_path.substring(1);
-
-  }
 
     return (
 

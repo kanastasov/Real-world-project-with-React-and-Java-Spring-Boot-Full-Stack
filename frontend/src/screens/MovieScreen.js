@@ -226,9 +226,9 @@ const MovieScreen = ({match}) => {
           </div>
         </div>
 
-            <div>
+   
+        <div>
               <strong>Full Cast & Crew</strong>
-
               <Row className="row-border-top circle-image">
               <h3>Reviews</h3>
             
@@ -236,7 +236,11 @@ const MovieScreen = ({match}) => {
                  (index < 1) ?
                  // md={6} lg={4} xl={3}*/
                  <Col key = {review.id} sm={12} >
-                 
+                    <Reviews review={review} size={size} />
+                 </Col>
+                 : null
+                )}
+
                 <Link to={`/movie/${id}/review`}>
                     <Card.Title style={{color: 'black'}} as ='div'>
                         <strong>Read All Reviews</strong>
@@ -245,7 +249,6 @@ const MovieScreen = ({match}) => {
                 
               </Row>
             </div>
-
 
             
 
